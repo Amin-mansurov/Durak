@@ -1,2 +1,1 @@
 # Durak
-# Durak
