@@ -1,5 +1,7 @@
 #include<iostream>
 #include<vector>
+#include<random>
+#include<algorithm>
 
 class Card{
     private:
@@ -38,9 +40,18 @@ class Deck{
             }
             
         }
+        void shuffle();
 
     
 };
+
+void Deck::shuffle()
+{
+    std::random_device rd;
+    std::mt19937 g(rd());
+    std::shuffle(deck.begin(),deck.end(), g);
+    std::cout << "Deck shuffled.\n";
+}
 
 int main()
 {
@@ -49,6 +60,11 @@ int main()
     {
         dec.deck[i].PrintCard();
     }
-    
+    std::cout << '\n';
+    dec.shuffle();
+    for (int i = 0; i < 24; i++)
+    {
+        dec.deck[i].PrintCard();
+    }
 
 }
