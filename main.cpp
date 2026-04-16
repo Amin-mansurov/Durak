@@ -53,6 +53,31 @@ void Deck::shuffle()
     std::cout << "Deck shuffled.\n";
 }
 
+class Table{
+    public:
+        std::vector<Card>tableAtt;
+        std::vector<Card>tableDef;
+        std::vector<Card>playerHand1;
+        std::vector<Card>playerHand2;
+        void printHand(std::vector<Card> &playerHand)
+        {
+            for(Card i: playerHand)
+            {
+               i.PrintCard();
+            }
+        }
+        void dealCard(std::vector<Card> &playerHand1, std::vector<Card> &playerHand2, std::vector<Card> &deck){
+            int i = 0;
+            while(i<12){
+                i+=2;
+                playerHand1.push_back(deck[i-1]);
+                playerHand2.push_back(deck[i-2]);
+                
+            }
+        }
+
+};
+
 int main()
 {
     Deck dec;
@@ -66,5 +91,10 @@ int main()
     {
         dec.deck[i].PrintCard();
     }
+    Table table;
+    std::cout << "123123\n";
+    table.dealCard(table.playerHand1, table.playerHand2, dec.deck);
+    std::cout << "Print hand \n\n";
+    table.printHand(table.playerHand1);
 
 }
